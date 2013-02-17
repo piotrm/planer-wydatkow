@@ -5,9 +5,10 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
 gem 'activerecord-mysql-adapter'
+gem 'mysql2'
 gem 'omniauth-twitter'
+gem "twitter"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,8 +21,8 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 
-  gem "therubyracer"
   gem "less-rails"
+  gem "therubyracer"
   gem "twitter-bootstrap-rails", git: 'git://github.com/piotrm/twitter-bootstrap-rails.git', branch: "bugfix"
 end
 

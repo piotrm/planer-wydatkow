@@ -1,0 +1,11 @@
+development:
+  key: GhzIcK84Uc12N0IEGIFYg
+  secret: iwHnJ84bz3bTLsjv1SqP7h3TPmQX6YrK6Y5bO2Lo8
+  access_token: 224880694-LPjVnSI0YjCuBEDTFBWpS9AjGDydj3A8X64vYTHE
+  access_token_secret: DKClwsQplKXV2MKgx9puwDn9Sxd7kzxFbQLH54W74kA
+
+test:
+  key: GhzIcK84Uc12N0IEGIFYg
+  secret: iwHnJ84bz3bTLsjv1SqP7h3TPmQX6YrK6Y5bO2Lo8
+  access_token: 224880694-LPjVnSI0YjCuBEDTFBWpS9AjGDydj3A8X64vYTHE
+  access_token_secret: DKClwsQplKXV2MKgx9puwDn9Sxd7kzxFbQLH54W74kA
