@@ -7,7 +7,7 @@ gem 'rails', '3.2.12'
 
 gem 'mysql2'
 gem 'activerecord-mysql-adapter'
-
+gem 'omniauth-twitter'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,7 +22,7 @@ group :assets do
 
   gem "therubyracer"
   gem "less-rails"
-  gem 'twitter-bootstrap-rails'
+  gem "twitter-bootstrap-rails", git: 'git://github.com/piotrm/twitter-bootstrap-rails.git', branch: "bugfix"
 end
 
 gem 'jquery-rails'

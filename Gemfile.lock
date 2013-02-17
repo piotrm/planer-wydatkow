@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/piotrm/twitter-bootstrap-rails.git
+  revision: 187afc422554155cb876f956b7c80791e067fda4
+  branch: bugfix
+  specs:
+    twitter-bootstrap-rails (2.2.3)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -45,6 +55,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    hashie (1.2.0)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -64,8 +75,18 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.6.1)
-    mysql (2.9.0)
+    mysql (2.9.1)
     mysql2 (0.3.11)
+    oauth (0.4.7)
+    omniauth (1.1.3)
+      hashie (~> 1.2)
+      rack
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-twitter (0.0.14)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -111,10 +132,6 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (2.2.3)
-      actionpack (>= 3.1)
-      execjs
-      railties (>= 3.1)
     tzinfo (0.3.35)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -129,8 +146,9 @@ DEPENDENCIES
   jquery-rails
   less-rails
   mysql2
+  omniauth-twitter
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
   therubyracer
-  twitter-bootstrap-rails
+  twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
