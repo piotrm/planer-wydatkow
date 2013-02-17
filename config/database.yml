@@ -21,7 +21,9 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: planer_production
   pool: 5
+  username: planer
+  password:
   timeout: 5000
