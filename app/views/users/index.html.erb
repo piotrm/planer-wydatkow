@@ -21,9 +21,9 @@
 
   <%= link_to 'New User', new_user_path %>
 <% else %>
-  <center>
+  <div class="text-center">
     <h1>Krucho z kasą?</h1>
     <h1>Zacznij planować!</h1>
-    <%= link_to "Zaloguj się korzystając z Twittera", "/auth/twitter", class: "btn btn-primary" %>
-  </center>
+    <%= link_to "Zaloguj się korzystając z Twittera", "/auth/twitter", class: "btn btn-info btn-large" %>
+  </div>
 <% end %>
