@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219195152) do
+ActiveRecord::Schema.define(:version => 20130219225859) do
 
   create_table "expenses", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130219195152) do
     t.string   "uid"
     t.string   "provider"
     t.string   "name"
+    t.integer  "quota"
   end
 
 end

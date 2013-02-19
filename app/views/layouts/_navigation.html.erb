@@ -16,7 +16,7 @@
             <li><%= link_to "Wydatki", expenses_path %></li>
             <li><%= link_to "Przychody", incomes_path %></li>
             <li><%= link_to "Statystyki" %></li>
-            <li><%= link_to "Ustawienia", user_settings_path(@user) %></li>
+            <li><%= link_to "Ustawienia", edit_user_path(@user) %></li>
           </ul>
           <% if current_user %>
             <div id="user_nav" class="pull-right">
