@@ -40,7 +40,13 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
-    @expense = Expense.new(params[:expense])
+    Rails.logger.error(params[:expense].inspect)
+    @expense = Expense.new(
+      amount: process_amount(params[:expense][:amount]),
+      longitude: params[:expense][:longitude],
+      latitude: params[:expense][:latitude],
+      user_id: current_user.id
+    )
 
     respond_to do |format|
       if @expense.save
@@ -79,5 +85,11 @@ class ExpensesController < ApplicationController
       format.html { redirect_to expenses_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def process_amount(amount)
+    ((amount.gsub(",",".").to_f*100)/100)*100
   end
 end

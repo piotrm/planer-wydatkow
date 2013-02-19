@@ -2,11 +2,10 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
+    if current_user
+      redirect_to current_user
+    else
+      @users = User.all
     end
   end
 
@@ -14,6 +13,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @incomes = Income.find_by_user_id(@user.id)
+    @expenses = Expense.find_by_user_id(@user.id)
 
     respond_to do |format|
       format.html # show.html.erb

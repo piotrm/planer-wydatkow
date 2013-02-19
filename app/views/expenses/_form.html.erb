@@ -1,8 +1,14 @@
 <%= form_for @expense, :html => { :class => 'form-horizontal' } do |f| %>
-
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                expenses_path, :class => 'btn' %>
+  	<%= f.label :amount, 'Kwota:' %>
+  	<%= f.text_field 'amount' %>
+
+  	<%= f.label :map, 'Wybierz lokalizację wydatku:' %>
+  	<div id="map_canvas"></div>
+
+  	<%= f.hidden_field 'longitude' %>
+  	<%= f.hidden_field 'latitude' %>
+    <%= f.submit 'Dodaj', :class => 'btn btn-primary' %>
+    <%= link_to "Anuluj", expenses_path, :class => 'btn' %>
   </div>
 <% end %>

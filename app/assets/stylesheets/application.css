@@ -15,3 +15,22 @@
 .hello {
 	margin-right: 15px;
 }
+
+#new_expense label,
+#new_income label {
+	font-size: 20px;
+}
+
+#expense_amount,
+#income_amount {
+	margin-bottom: 30px;
+}
+
+#map_canvas {
+	width: 400px;
+	height: 400px;
+	position: relative;
+	background-color: rgb(229, 227, 223);
+	overflow: hidden; -webkit-transform: translateZ(0);
+	margin-bottom: 30px;
+}

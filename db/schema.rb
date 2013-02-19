@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219165943) do
+ActiveRecord::Schema.define(:version => 20130219195152) do
 
   create_table "expenses", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130219165943) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "user_id"
+    t.boolean  "gmaps"
   end
 
   add_index "expenses", ["user_id"], :name => "index_expenses_on_user_id"
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130219165943) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "user_id"
+    t.boolean  "gmaps"
   end
 
   add_index "incomes", ["user_id"], :name => "index_incomes_on_user_id"

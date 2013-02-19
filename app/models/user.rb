@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  # attr_accessible :title, :body
+  has_many :incomes
+  has_many :expenses
+
   def self.from_omniauth(auth)  
     find_by_uid(auth["uid"]) || create_with_omniauth(auth)  
   end  

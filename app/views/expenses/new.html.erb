@@ -1,5 +1,17 @@
+<%= render partial: 'layouts/create_javascript' %>
+
 <%- model_class = Expense -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human %></h1>
+  <h1>Nowy wydatek</h1>
+  <h4>Data: <%= Date.today %></h4>
 </div>
+
 <%= render :partial => 'form' %>
+
+<script type="text/javascript">
+   $(document).ready(function(){
+      initialize("#expense_latitude", "#expense_longitude");
+      $("#expense_latitude").val(marker.position.hb);
+      $("#expense_longitude").val(marker.position.ib);
+   })
+</script>

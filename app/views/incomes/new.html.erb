@@ -1,5 +1,16 @@
+<%= render partial: 'layouts/create_javascript' %>
+
 <%- model_class = Income -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human %></h1>
+  <h1>Nowy przypływ</h1>
 </div>
+
 <%= render :partial => 'form' %>
+
+<script type="text/javascript">
+   $(document).ready(function(){
+      initialize("#income_latitude", "#income_longitude");
+      $("#income_latitude").val(marker.position.hb);
+      $("#income_longitude").val(marker.position.ib);
+   })
+</script>

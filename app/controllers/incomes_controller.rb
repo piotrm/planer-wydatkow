@@ -40,7 +40,12 @@ class IncomesController < ApplicationController
   # POST /incomes
   # POST /incomes.json
   def create
-    @income = Income.new(params[:income])
+    @income = Expense.new(
+      amount: process_amount(params[:income][:amount]),
+      longitude: params[:income][:longitude],
+      latitude: params[:income][:latitude],
+      user_id: current_user.id
+    )
 
     respond_to do |format|
       if @income.save
@@ -79,5 +84,11 @@ class IncomesController < ApplicationController
       format.html { redirect_to incomes_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def process_amount(amount)
+    ((amount.gsub(",",".").to_f*100)/100)*100
   end
 end
