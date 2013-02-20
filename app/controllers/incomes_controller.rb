@@ -2,7 +2,16 @@ class IncomesController < ApplicationController
   # GET /incomes
   # GET /incomes.json
   def index
-    @incomes = Income.all
+    @incomes = Income.find_all_by_user_id(current_user.id)
+    @incomes_json = @incomes.to_gmaps4rails do |income, marker|
+      marker.infowindow render_to_string(partial: "/incomes/infowindow", locals: { income: income })
+      marker.title "Wydatek"
+      marker.json({ amount: income.amount, date: income.date })
+      # marker.picture({
+      #   :picture => "http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-3875d7/shapecolor-color/shadow-1/border-dark/symbolstyle-contrast/symbolshad     owstyle-dark/gradient-iphone/information.png",
+      #   :width => 32,
+      #   :height => 32})
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +53,7 @@ class IncomesController < ApplicationController
       amount: process_amount(params[:income][:amount]),
       longitude: params[:income][:longitude],
       latitude: params[:income][:latitude],
-      date: params[:income][:date].to_date,
+      date: Date.strptime(params[:income][:date],'%m/%d/%Y'),
       user_id: current_user.id
     )
 

@@ -2,7 +2,8 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+    @expenses = Expense.find_all_by_user_id(current_user.id)
+    @expenses_json = @expenses.to_gmaps4rails
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +45,7 @@ class ExpensesController < ApplicationController
       amount: process_amount(params[:expense][:amount]),
       longitude: params[:expense][:longitude],
       latitude: params[:expense][:latitude],
-      date: params[:expense][:date].to_date,
+      date: Date.strptime(params[:expense][:date],'%m/%d/%Y'),
       user_id: current_user.id
     )
 

@@ -26,3 +26,8 @@
 </table>
 
 <%= link_to "Nowy", new_expense_path, :class => 'btn btn-primary' %>
+
+<hr>
+<div id="mapa">
+  <%= gmaps4rails(@expenses_json) %>
+</div>

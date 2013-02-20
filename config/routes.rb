@@ -1,11 +1,9 @@
 Planer::Application.routes.draw do
   resources :users
-
-
   resources :incomes
-
-
   resources :expenses
+
+  match "/statistics" => "statistics#render_statistics"
 
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout

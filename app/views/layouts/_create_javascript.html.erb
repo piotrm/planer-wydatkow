@@ -21,8 +21,8 @@
     });
     
     google.maps.event.addListener(marker, 'dragend', function() {
-      $(latitude).val(marker.position.hb);
-      $(longitude).val(marker.position.ib);
+      $(latitude).val(marker.position.ib);
+      $(longitude).val(marker.position.hb);
     });
 
     if(navigator.geolocation) {
@@ -31,8 +31,8 @@
         initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
         map.setCenter(initialLocation);
         marker.position = initialLocation;
-        $(latitude).val(marker.position.hb);
-        $(longitude).val(marker.position.ib);
+        $(latitude).val(marker.position.ib);
+        $(longitude).val(marker.position.hb);
       }, function() {
         handleNoGeolocation();
       });
