@@ -5,19 +5,17 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Data:</th>
+      <th>Kwota:</th>
     </tr>
   </thead>
   <tbody>
     <% @incomes.each do |income| %>
       <tr>
-        <td><%= link_to income.id, income_path(income) %></td>
-        <td><%=l income.created_at %></td>
+        <td><%= income.date %></td>
+        <td><%= number_to_currency(income.amount.to_f/100, :unit => "PLN") %></td>
         <td>
-          <%= link_to "Edytuj", edit_income_path(income), :class => 'btn btn-mini' %>
-          <%= link_to "Usuń", income_path(income),
+          <%= link_to "Usuń", incomes_path(income),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>

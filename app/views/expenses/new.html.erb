@@ -9,9 +9,10 @@
 <%= render :partial => 'form' %>
 
 <script type="text/javascript">
-   $(document).ready(function(){
-      initialize("#expense_latitude", "#expense_longitude");
-      $("#expense_latitude").val(marker.position.hb);
-      $("#expense_longitude").val(marker.position.ib);
-   })
+  $(document).ready(function(){
+    initialize("#expense_latitude", "#expense_longitude");
+    $("#expense_latitude").val(marker.position.hb);
+    $("#expense_longitude").val(marker.position.ib);
+    $('.datepicker').datepicker();
+  })
 </script>

@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap-datepicker
  */
 
 .hello {
@@ -33,4 +34,12 @@
 	background-color: rgb(229, 227, 223);
 	overflow: hidden; -webkit-transform: translateZ(0);
 	margin-bottom: 30px;
+}
+
+.expenses_table tbody td, .red {
+	color: red !important;
+}
+
+.incomes_table tbody td, .green {
+	color: green !important;	
 }

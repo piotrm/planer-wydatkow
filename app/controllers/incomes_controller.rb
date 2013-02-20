@@ -40,16 +40,17 @@ class IncomesController < ApplicationController
   # POST /incomes
   # POST /incomes.json
   def create
-    @income = Expense.new(
+    @income = Income.new(
       amount: process_amount(params[:income][:amount]),
       longitude: params[:income][:longitude],
       latitude: params[:income][:latitude],
+      date: params[:income][:date].to_date,
       user_id: current_user.id
     )
 
     respond_to do |format|
       if @income.save
-        format.html { redirect_to @income, notice: 'Income was successfully created.' }
+        format.html { redirect_to incomes_path, notice: 'Income was successfully created.' }
         format.json { render json: @income, status: :created, location: @income }
       else
         format.html { render action: "new" }

@@ -13,8 +13,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @incomes = Income.find_by_user_id(@user.id)
-    @expenses = Expense.find_by_user_id(@user.id)
+    @incomes = Income.find_all_by_user_id(@user.id)[0...10]
+    @expenses = Expense.find_all_by_user_id(@user.id)[0...10]
 
     respond_to do |format|
       format.html # show.html.erb

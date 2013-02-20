@@ -6,6 +6,9 @@
   	<%= f.label :map, 'Wybierz lokalizację wydatku:' %>
   	<div id="map_canvas"></div>
 
+  	<%= f.label "Wybierz datę:" %>
+  	<%= f.text_field :date, :class => 'datepicker' %>
+
   	<%= f.hidden_field 'longitude' %>
   	<%= f.hidden_field 'latitude' %>
     <%= f.submit 'Dodaj', :class => 'btn btn-primary' %>

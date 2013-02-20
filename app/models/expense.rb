@@ -3,8 +3,7 @@ class Expense < ActiveRecord::Base
 
 	belongs_to :user
 
-  attr_accessible :amount, :longitude, :latitude, :user_id
-  attr_accessor :amount
+  attr_accessible :amount, :longitude, :latitude, :user_id, :date
 
   validate :amount, :presence
   validate :amount_more_or_equals_zero

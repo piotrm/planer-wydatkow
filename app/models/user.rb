@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :incomes
   has_many :expenses
 
+  attr_accessible :quota
+
   def self.from_omniauth(auth)  
     find_by_uid(auth["uid"]) || create_with_omniauth(auth)  
   end  
@@ -12,5 +14,26 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]  
       user.name = auth["info"]["name"]  
     end  
-  end 
+  end
+
+  def current_cash_status
+    sum = 0
+    incomes.each do |i|
+      sum += i.amount
+    end
+
+    expenses.each do |e|
+      sum -= e.amount
+    end
+
+    sum
+  end
+
+  def cash_balance
+    quota + current_cash_status
+  end
+
+  def limit_exceeded?
+     cash_balance < 0
+  end
 end

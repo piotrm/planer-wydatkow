@@ -40,17 +40,17 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
-    Rails.logger.error(params[:expense].inspect)
     @expense = Expense.new(
       amount: process_amount(params[:expense][:amount]),
       longitude: params[:expense][:longitude],
       latitude: params[:expense][:latitude],
+      date: params[:expense][:date].to_date,
       user_id: current_user.id
     )
 
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
+        format.html { redirect_to expenses_path, notice: 'Expense was successfully created.' }
         format.json { render json: @expense, status: :created, location: @expense }
       else
         format.html { render action: "new" }
