@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def cash_balance
-    quota + current_cash_status
+    quota + current_cash_status if !quota.nil?
   end
 
   def limit_exceeded?

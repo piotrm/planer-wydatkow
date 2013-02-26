@@ -43,3 +43,7 @@
 .incomes_table tbody td, .green {
 	color: green !important;	
 }
+
+.grey {
+	color: #BBB;
+}
