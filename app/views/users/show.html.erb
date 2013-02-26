@@ -4,60 +4,71 @@
 	<h1>Bilans: <span class=<%= balance_class(@user.cash_balance) %>><%= show_balance(@user.cash_balance) %></span></h1>
 </div>
 
-<div class="page-header">
+<div class="<%= quantity_class(@expenses)%> page-header">
   <h2>Wydatki</h2>
 </div>
-<table class="table table-striped expenses_table">
-  <thead>
-    <tr>
-      <th>Data:</th>
-      <th>Kwota:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @expenses.each do |expense| %>
+<% if @expenses.count == 0 %>
+  <h1 class=<%= quantity_class(@expenses)%>>...</h1>
+<% else %>
+  <table class="table table-striped expenses_table">
+    <thead>
       <tr>
-        <td><%= expense.date %></td>
-        <td><%= "- #{number_to_currency(expense.amount.to_f/100, :unit => "PLN")}" %></td>
-        <td>
-          <%= link_to "Usuń", expense_path(expense),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
+        <th>Data:</th>
+        <th>Kwota:</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @expenses.each do |expense| %>
+        <tr>
+          <td><%= expense.date %></td>
+          <td><%= "- #{number_to_currency(expense.amount.to_f/100, :unit => "PLN")}" %></td>
+          <td>
+            <%= link_to "Usuń", expense_path(expense),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-mini btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
 <% if @expenses.count > 10 %>
 	<%= link_to "Pokaz więcej wydatków...", expenses_path, :class => "btn btn-primary" %>
 <% end %>
 
-<div class="page-header">
+<div class="<%= quantity_class(@incomes)%> page-header">
   <h2>Przychody</h2>
 </div>
-<table class="table table-striped incomes_table">
-  <thead>
-    <tr>
-      <th>Data:</th>
-      <th>Kwota:</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @incomes.each do |income| %>
+
+<% if @incomes.count == 0 %>
+  <h1 class=<%= quantity_class(@incomes)%> >...</h1>
+<% else %>
+  <table class="table table-striped incomes_table">
+    <thead>
       <tr>
-        <td><%= income.date %></td>
-        <td><%= "+ #{number_to_currency(income.amount.to_f/100, :unit => "PLN")}" %></td>
-        <td>
-          <%= link_to "Usuń", incomes_path(income),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
+        <th>Data:</th>
+        <th>Kwota:</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @incomes.each do |income| %>
+        <tr>
+          <td><%= income.date %></td>
+          <td><%= "+ #{number_to_currency(income.amount.to_f/100, :unit => "PLN")}" %></td>
+          <td>
+            <%= link_to "Usuń", incomes_path(income),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-mini btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
 <% if @incomes.count > 10 %>
 	<%= link_to "Pokaz więcej przychodów...", incomes_path, :class => "btn btn-primary" %>
 <% end %>
