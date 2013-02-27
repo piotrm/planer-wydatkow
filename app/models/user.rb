@@ -18,11 +18,11 @@ class User < ActiveRecord::Base
 
   def current_cash_status
     sum = 0
-    incomes.each do |i|
+    incomes.belonging_to_user(self.id).this_months.each do |i|
       sum += i.amount
     end
 
-    expenses.each do |e|
+    expenses.belonging_to_user(self.id).this_months.each do |e|
       sum -= e.amount
     end
 
@@ -35,5 +35,9 @@ class User < ActiveRecord::Base
 
   def limit_exceeded?
      cash_balance < 0
+  end
+
+  def self.process_quota(amount)
+    ((amount.gsub(",",".").to_f*100)/100)*100
   end
 end

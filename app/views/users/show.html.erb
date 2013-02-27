@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="page-header">
-	<h1>Bilans: <span class=<%= balance_class(@user.cash_balance) %>><%= show_balance(@user.cash_balance) %></span></h1>
+	<h1>Bilans: <span class=<%= balance_class(@user.current_cash_status) %>><%= show_balance(@user.current_cash_status) %></span></h1>
 </div>
 
 <div class="<%= quantity_class(@expenses)%> page-header">
