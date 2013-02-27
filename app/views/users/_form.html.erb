@@ -13,7 +13,7 @@
 
   <div class="actions">
     <%= f.label "Miesięcznia kwota graniczna:" %>
-    <%= f.text_field :quota %>
+    <%= f.text_field :quota, :value => number_to_currency(@user.quota.to_f/100, :unit => "") %>
     <br/>
     <%= f.submit "Uaktualnij" %>
   </div>
