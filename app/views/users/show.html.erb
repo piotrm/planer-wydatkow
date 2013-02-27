@@ -34,7 +34,7 @@
   </table>
 <% end %>
 
-<% if @expenses.count > 10 %>
+<% if Expense.all.count > 10 %>
 	<%= link_to "Pokaz więcej wydatków...", expenses_path, :class => "btn btn-primary" %>
 <% end %>
 
@@ -69,6 +69,6 @@
   </table>
 <% end %>
 
-<% if @incomes.count > 10 %>
+<% if Income.all.count > 10 %>
 	<%= link_to "Pokaz więcej przychodów...", incomes_path, :class => "btn btn-primary" %>
 <% end %>
