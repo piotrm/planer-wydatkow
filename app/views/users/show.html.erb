@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <div class="page-header">
-	<h1>Bilans: <span class=<%= balance_class(@user.current_cash_status) %>><%= show_balance(@user.current_cash_status) %></span></h1>
+	<h1>Bilans: <span class=<%= balance_class(@user.cash_balance) %>><%= show_balance(@user.cash_balance) %></span></h1>
+  <% if !@user.quota.nil? %>
+    <h3><%=raw show_quota_message(@user) %></h3>
+  <% end %>
 </div>
 
 <div class="<%= quantity_class(@expenses)%> page-header">
@@ -34,7 +37,7 @@
   </table>
 <% end %>
 
-<% if Expense.all.count > 10 %>
+<% if Expense.belonging_to_user(@user).all.count > 10 %>
 	<%= link_to "Pokaz więcej wydatków...", expenses_path, :class => "btn btn-primary" %>
 <% end %>
 

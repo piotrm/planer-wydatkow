@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     end  
   end
 
-  def current_cash_status
+  def cash_balance
     sum = 0
     incomes.belonging_to_user(self.id).this_months.each do |i|
       sum += i.amount
@@ -29,12 +29,8 @@ class User < ActiveRecord::Base
     sum
   end
 
-  def cash_balance
-    quota + current_cash_status if !quota.nil?
-  end
-
   def limit_exceeded?
-     cash_balance < 0
+     quota + cash_balance < 0
   end
 
   def self.process_quota(amount)
