@@ -41,11 +41,17 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
+    date = if params[:expense][:date] == ""
+      Date.today.strftime('%m/%d/%Y')
+    else
+      Date.strptime(params[:expense][:date],'%m/%d/%Y')
+    end
+
     @expense = Expense.new(
       amount: process_amount(params[:expense][:amount]),
       longitude: params[:expense][:longitude],
       latitude: params[:expense][:latitude],
-      date: Date.strptime(params[:expense][:date],'%m/%d/%Y'),
+      date: date,
       user_id: current_user.id
     )
 
