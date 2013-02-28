@@ -65,7 +65,7 @@
           <td><%= "+ #{number_to_currency(income.amount.to_f/100, :unit => "PLN")}" %></td>
           <td><%= income.description %></td>
           <td>
-            <%= link_to "Usuń", incomes_path(income),
+            <%= link_to "Usuń", income_path(income),
                         :method => :delete,
                         :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                         :class => 'btn btn-mini btn-danger' %>
