@@ -18,6 +18,7 @@
       <tr>
         <th>Data:</th>
         <th>Kwota:</th>
+        <th>Opis:</th>
       </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
         <tr>
           <td><%= expense.date %></td>
           <td><%= "- #{number_to_currency(expense.amount.to_f/100, :unit => "PLN")}" %></td>
+          <td><%= expense.description %></td>
           <td>
             <%= link_to "Usuń", expense_path(expense),
                         :method => :delete,
@@ -53,6 +55,7 @@
       <tr>
         <th>Data:</th>
         <th>Kwota:</th>
+        <th>Opis:</th>
       </tr>
     </thead>
     <tbody>
@@ -60,6 +63,7 @@
         <tr>
           <td><%= income.date %></td>
           <td><%= "+ #{number_to_currency(income.amount.to_f/100, :unit => "PLN")}" %></td>
+          <td><%= income.description %></td>
           <td>
             <%= link_to "Usuń", incomes_path(income),
                         :method => :delete,
