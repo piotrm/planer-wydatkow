@@ -50,7 +50,7 @@ class IncomesController < ApplicationController
   # POST /incomes.json
   def create
     date = if params[:income][:date] == ""
-      Date.today.strftime('%m/%d/%Y')
+      Date.today
     else
       Date.strptime(params[:income][:date],'%m/%d/%Y')
     end
