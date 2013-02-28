@@ -52,7 +52,7 @@ class IncomesController < ApplicationController
     date = if params[:income][:date] == ""
       Date.today.strftime('%m/%d/%Y')
     else
-      Date.strptime(params[:income[:date],'%m/%d/%Y')
+      Date.strptime(params[:income][:date],'%m/%d/%Y')
     end
 
     @income = Income.new(
