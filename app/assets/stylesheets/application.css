@@ -23,7 +23,9 @@
 }
 
 #expense_amount,
-#income_amount {
+#income_amount,
+#expense_description,
+#income_description {
 	margin-bottom: 30px;
 }
 
