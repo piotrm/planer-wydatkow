@@ -7,6 +7,7 @@
     <tr>
       <th>Data:</th>
       <th>Kwota:</th>
+      <th>Opis:</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,7 @@
       <tr>
         <td><%= expense.date %></td>
         <td><%= number_to_currency(expense.amount.to_f/100, :unit => "PLN") %></td>
+        <td><%= truncate(expense.description, :length => 80) %></td>
         <td>
           <%= link_to "Usuń", expense_path(expense),
                       :method => :delete,

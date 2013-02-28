@@ -11,30 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219232401) do
+ActiveRecord::Schema.define(:version => 20130228073226) do
 
   create_table "expenses", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "amount"
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "user_id"
     t.boolean  "gmaps"
     t.date     "date"
+    t.string   "description"
   end
 
   add_index "expenses", ["user_id"], :name => "index_expenses_on_user_id"
 
   create_table "incomes", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "amount"
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "user_id"
     t.boolean  "gmaps"
     t.date     "date"
+    t.string   "description"
   end
 
   add_index "incomes", ["user_id"], :name => "index_incomes_on_user_id"

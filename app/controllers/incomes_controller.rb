@@ -59,6 +59,7 @@ class IncomesController < ApplicationController
       amount: process_amount(params[:income][:amount]),
       longitude: params[:income][:longitude],
       latitude: params[:income][:latitude],
+      description: params[:income][:description],
       date: date,
       user_id: current_user.id
     )

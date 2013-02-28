@@ -51,6 +51,7 @@ class ExpensesController < ApplicationController
       amount: process_amount(params[:expense][:amount]),
       longitude: params[:expense][:longitude],
       latitude: params[:expense][:latitude],
+      description: params[:expense][:description],
       date: date,
       user_id: current_user.id
     )
